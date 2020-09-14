@@ -381,6 +381,37 @@ Colocamos la información que nos solicitan de la aplicación que es un identifi
 Ya tenemos registrada nuestra aplicación ahora podemos registrar dispositivos a esta aplicación tantos como tengamos, pensando en un campo de riego podriamos tener varios sensores para el sistema de riego. El registro de un dispositivo es muy sencillo siguiendo estos pasos, apoyarse en esta imagen:
 ![opciones](/imagenes/registroDevice.png)
 
+La información del dispositivo es solo colocar un Device Id indientificador todo en minúscula. El Device EUI y App Key se pueden autogenerar, junto el App EUI. Estos tres datos los vamos a ocupar en nuestro archivo de congifuración de el radio lora. Ver imagen
+![RegistroDev](/imagenes/infoDeviceregistro.png)
+
+Finalmene debemos tener a mano la siguiente información para hacer la configuración de nuestra tarjeta en el Arduino IDE. Recordar copiar o tener a mano lo que se ve en la siguiente imagen. 
+![InfoTokens](/imagenes/datos%20para%20Radio.png)
+
+Estamos listos para configurar nuestra aplicación en el arduino IDE, para ello requerimos agregar algunas librerias para que podamos cargar nuestro feather y sea reconocido por nuestro IDE. 
+
+Primero requerimos soporte para lograrlo deben de seguir este [manual](https://learn.adafruit.com/adafruit-feather-m0-radio-with-lora-radio-module/using-with-arduino-ide) esta muy bien explicado, se instala la libreria SAMD, se instalan controladores para windows 7 o superior. 
+
+Se debe instalar la libreria LMIC también para el manejo del Lora radio, a la que debemos configurar para que utilice la frecuencia para america revisar la siguiente [documentación](https://github.com/openwave-co-jp/arduino-lmic-master-for-LG01-JP).
+La librería a instalar en el IDE de arduino es la siguiente>
+![LMIC](/imagenes/datos%20para%20Radio.png)
+
+En este sitio estoy subiendo el archivo de Arduino que se puede cargar para nuestro Feather es el que estamos utilizando en el demo, a este solo deben de tener el cuidado de cablearle los pines como se indica dentro del código o en su defecto hacer los cambios a los pines que ustedes están utilizando.
+
+Dentro del código basta con cambiar tres parametros y si tienes los mismos sensores perfecto, sino puedes subir datos quemados. Como se muestra en esta imagen:
+![TokensTTN](/imagenes/lmic.png)
+
+Esos valores los obtienes de el registro en la plataforma de TTN, lee las indicaciones de cuales deben ir convertidos y cuales no, ya que sino lo haces así tu antena de Lora no se registrará en el gateway y no podrás enviar datos.
+
+El código para tu arduino IDE lo descargar [aqui](/codigo/featherm0taller40.zip)
+
+En este momento si cambias los valores de tu llave deberás poder subir datos a tu TTN, 
+
+## Configuracion de Payload
+
+## Integreación con Ubidots
+
+
+
 
 
 
