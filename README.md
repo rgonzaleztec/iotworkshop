@@ -14,6 +14,13 @@ Pueden realizar consulta escribiendo a Rogelio Gonzalez al correo rojo@tec.ac.cr
 
 
 # Sobre las placas
+Vamos a utilizar un Arduino Uno con un shield de ethernet.
+![Arduino Uno](/imagenes/logo.png)
+
+![Arduino con placa](imagenes/)
+
+
+
 
 # Sobre la Plataforma
 
