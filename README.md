@@ -299,11 +299,11 @@ Ahora con tu tablero creado puedes usar las opciones de compartir o empotrar tu 
 
 # Como conectar un Feather Lora Radio
 
-Como se pudo observar en la presentacion del taller las redes LoraWAN esa desplegadas por todo el mundo, gracias a su versatilidad y bajo consumo de electricidad se perfil como un actor muy importante para desarrollar algunas aplicaciones de IoT.
+Como se pudo observar en la presentacion del taller las redes LoraWAN estan desplegadas por todo el mundo, gracias a su versatilidad y bajo consumo de electricidad se perfila como un actor muy importante para desarrollar algunas aplicaciones de IoT.
 
 Para que nuestro Radio Feather M0 RFM95 para **900 Mhz** con chip de SX127x de Lora que en una frecuencia de banda libre (en muchos paises de America Latina la banda 900Mhz es libre debe verificar en el suyo) funcione es requerido tener dos rádios cercanos unos 400 a 600 metros. Lo común es utilizar una pasalera comunitaria de la red LoraWAN que esta soportada en la infraestructura que "The Things Network" facilita a nivel mundial de manera gratuita. Puede verificar si tiene pasarelas cercanas a usted en este [enlace](https://www.thethingsnetwork.org/). 
 
-No se estara realizando completamente la configuración del Gateway que se esta utilizando dada la gran variedad, pero se dejan los enlaces al que se utilizo para el taller, más enlaces a otros que pueden ser adquiridos para realizar pruebas, en caso de que estes cerca de un Gateawy de lora solo debes verificar la distancia para que tu antena se de un tamaño y potencia que te permita acceder a ese Gateway(lora no tiene tanta perdida como wifi atravesando paredes :)).
+No se estará realizando completamente la configuración del Gateway que se esta utilizando dada la gran variedad, pero se dejan los enlaces al que se utilizó para el taller, más enlaces a otros que pueden ser adquiridos para realizar pruebas, en caso de que estes cerca de un Gateway de lora solo debes verificar la distancia para que tu antena sea de un tamaño y potencia que te permita acceder a ese Gateway(lora no tiene tanta perdida como wifi atravesando paredes).
 
 Algunas puertas de enlace que TTN promueve pueden verse [aqui](https://www.thethingsnetwork.org/marketplace/products/devices).
 
@@ -323,13 +323,21 @@ Para el Feather M0 pueden comprarlo en multiples páginas por ejemplo>
 
 A nuestro feather le hemos conectado un dth22 y un acelerometro adxl345. Ilustrados en la siguiente imagenes.
 
-![DTH22](/master/imagenes/dht22-pinout_2P1AgF3wPs.png.jpeg)
+Sensor de Humedad Temperatura DHT22
+![DTH22](/imagenes/dht22-pinout_2P1AgF3wPs.png.jpeg)
+
+Acelerometro ADXL345
 ![Acelerometro ADXL345](/imagenes/acelerometro-3-ejes-adxl345-2g4g8g16g.jpg)
 
 Sugerencia de cableado de los dispositivos al feather m0.
 
+Para el de Humedad Temperatura, en la vista se puede apreciar la antena del Radio de Lora.
 ![Temperatura-Humedad](/imagenes/weather_dht22_fritzing.png)
+
+Para el Acelerometro
 ![Acelerometro](/imagenes/feather-and-ADXL345-layout.png)
+
+**Nota imporante nunca conecte el feather radio a un alimentación o bateria sin haber soldado la antenna, esto puede quedar la tarjeta**
 
 Estos pueden cambiar para su conficuración personal, pero debe tener en cuenta lo siguiente:
 * El feather M0 solo tiene un conexion de GND o tierra y una de VCC o voltaje, por lo que deberá alambrar y soldar un linea para darle esos conexiones a ambos sensores
