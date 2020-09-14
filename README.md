@@ -311,7 +311,7 @@ El que se utiliza para este laboratorio se puede comprar bajo el modelo RAK 831,
 Pueden verlo en la siguiente 
 ![imagen](/imagenes/kit7_1024x.jpg).
 
-Algunos manuales disponibles de mucha utilidad para realidad la instalación:
+Algunos manuales disponibles de mucha utilidad para realizar la instalación:
 * De TTN [este](https://www.thethingsnetwork.org/docs/gateways/rak831/)
 * De RAK [este](https://www.hackster.io/naresh-krish/getting-started-with-the-rak831-lora-gateway-and-rpi3-e3351d)
 * En video funciona [este](https://www.youtube.com/watch?v=bea7g5isD0w)
@@ -338,13 +338,13 @@ Para el Acelerometro
 
 ![Acelerometro](/imagenes/feather-and-ADXL345-layout.png)
 
-**Nota imporante nunca conecte el feather radio a un alimentación o bateria sin haber soldado la antenna, esto puede quedar la tarjeta**
+**Nota importante nunca conecte el feather radio a una alimentación o bateria sin haber soldado la antenna, esto puede quemar la tarjeta**
 
-Estos pueden cambiar para su conficuración personal, pero debe tener en cuenta lo siguiente:
+Estos pueden cambiar para su configuración personal, pero debe tener en cuenta lo siguiente:
 * El feather M0 solo tiene un conexion de GND o tierra y una de VCC o voltaje, por lo que deberá alambrar y soldar un linea para darle esos conexiones a ambos sensores
 * No debe cargar la linea de VCC y GND demasiado, aunque tiene 10 pines analógicos entre más sensores má bateria
 * Si alambra más sensores para evitar degradar la señal ocupará un capacitor
-* A este fearher le conectaremos una bateria de 3.7V no exceda ese maximo ya que puede causar que la bateria se termine muy rápido
+* A este feather le conectaremos una bateria de 3.7V no exceda ese maximo ya que puede causar que la bateria se termine muy rápido
 
 
 Ahora tenemos claro que estamos usando debemos soldar y cablear todo con cuidado, se pueden utilizar protoboard si el sensor es para pruebas.
@@ -381,34 +381,132 @@ Colocamos la información que nos solicitan de la aplicación que es un identifi
 Ya tenemos registrada nuestra aplicación ahora podemos registrar dispositivos a esta aplicación tantos como tengamos, pensando en un campo de riego podriamos tener varios sensores para el sistema de riego. El registro de un dispositivo es muy sencillo siguiendo estos pasos, apoyarse en esta imagen:
 ![opciones](/imagenes/registroDevice.png)
 
-La información del dispositivo es solo colocar un Device Id indientificador todo en minúscula. El Device EUI y App Key se pueden autogenerar, junto el App EUI. Estos tres datos los vamos a ocupar en nuestro archivo de congifuración de el radio lora. Ver imagen
+La información del dispositivo es solo colocar un Device Id indentificador todo en minúscula. El Device EUI y App Key se pueden autogenerar, junto el App EUI. Estos tres datos los vamos a ocupar en nuestro archivo de congifuración del radio lora. Ver imagen
 ![RegistroDev](/imagenes/infoDeviceregistro.png)
 
-Finalmene debemos tener a mano la siguiente información para hacer la configuración de nuestra tarjeta en el Arduino IDE. Recordar copiar o tener a mano lo que se ve en la siguiente imagen. 
+Finalmente debemos tener a mano la siguiente información para hacer la configuración de nuestra tarjeta en el Arduino IDE. Recordar copiar o tener a mano lo que se ve en la siguiente imagen. 
 ![InfoTokens](/imagenes/datos%20para%20Radio.png)
 
+
+## Configurando el Arduino IDE para trabajar
 Estamos listos para configurar nuestra aplicación en el arduino IDE, para ello requerimos agregar algunas librerias para que podamos cargar nuestro feather y sea reconocido por nuestro IDE. 
 
 Primero requerimos soporte para lograrlo deben de seguir este [manual](https://learn.adafruit.com/adafruit-feather-m0-radio-with-lora-radio-module/using-with-arduino-ide) esta muy bien explicado, se instala la libreria SAMD, se instalan controladores para windows 7 o superior. 
 
-Se debe instalar la libreria LMIC también para el manejo del Lora radio, a la que debemos configurar para que utilice la frecuencia para america revisar la siguiente [documentación](https://github.com/openwave-co-jp/arduino-lmic-master-for-LG01-JP).
+Se debe instalar la libreria LMIC también para el manejo del Lora radio, a la que debemos configurar para que utilice la frecuencia para América revisar la siguiente [documentación](https://github.com/openwave-co-jp/arduino-lmic-master-for-LG01-JP).
 La librería a instalar en el IDE de arduino es la siguiente>
-![LMIC](/imagenes/datos%20para%20Radio.png)
+![LMIC](/imagenes/lmic.png)
 
 En este sitio estoy subiendo el archivo de Arduino que se puede cargar para nuestro Feather es el que estamos utilizando en el demo, a este solo deben de tener el cuidado de cablearle los pines como se indica dentro del código o en su defecto hacer los cambios a los pines que ustedes están utilizando.
 
 Dentro del código basta con cambiar tres parametros y si tienes los mismos sensores perfecto, sino puedes subir datos quemados. Como se muestra en esta imagen:
-![TokensTTN](/imagenes/lmic.png)
+![TokensTTN](/imagenes/datos%20para%20Radio.png)
 
 Esos valores los obtienes de el registro en la plataforma de TTN, lee las indicaciones de cuales deben ir convertidos y cuales no, ya que sino lo haces así tu antena de Lora no se registrará en el gateway y no podrás enviar datos.
 
-El código para tu arduino IDE lo descargar [aqui](/codigo/featherm0taller40.zip)
+El código para tu arduino IDE lo descargas de [aqui](/codigo/featherm0taller40.zip)
 
 En este momento si cambias los valores de tu llave deberás poder subir datos a tu TTN, 
 
-## Configuracion de Payload
+## Configuración de Payload
+Los paquetes de carga son los paquete de datos que TTN estable para con permiso para transitar en en red. Estos tienen un formato y regulaciones les dejo por acá un [enlace](https://akirasan.net/la-importancia-de-un-buen-payload-en-lorawan/) recomendación descargar y ver el pdf de la presentación del autor para ampliar el tema, la importancia  del Payload en español.
 
-## Integreación con Ubidots
+Lo principal se podría resumir como:
+* Solo tenemos 30 segundos de aire
+* No podemos subir mega paquetes ya que la red no lo soporta
+* No podemos subir paquetes antes de 30 segundos debemos esperar
+* La red se diseño para que sea solidaria por eso los 30 segundos
+* La tecnologia tiene un máximo aproximado de 1024 bytes
+* LoraWAN añade 13 bytes a nuestro mensaje (menos espacio)
+
+Para nuestro caso les dejo lo que utilizo para convertir los datos que estos enviando, desde luego es solo para este caso la forma en que los conviertas cambiará tu payload.
+
+Código listo para pegar en el decoder:
+
+```c++
+/ TTN Decoder for TTN OTAA Feather US915 DHT22 Sketch
+    // Link: https://github.com/mcci-catena/arduino-lmic/blob/master/examples/ttn-otaa-feather-us915-dht22/ttn-otaa-feather-us915-dht22.ino
+    function Decoder(bytes, port) {
+      // Decode an uplink message from a buffer
+      // (array) of bytes to an object of fields.
+      var decoded = {};
+      
+      // temperature 
+	  
+		rawTemp = bytes[0] + bytes[1] * 256;
+      
+		decoded.degreesC = sflt162f(rawTemp) * 100;
+      
+		// humidity 
+		rawHumid = bytes[2] + bytes[3] * 256;
+		decoded.humidity = sflt162f(rawHumid) * 100;
+      
+		decoded.x = bytes[4] + bytes[5] * 256;
+		decoded.y = bytes[6] + bytes[7] * 256;
+		decoded.z = bytes[8] + bytes[9] * 256;
+  
+      return decoded;
+    }
+	
+	
+	
+     
+    function sflt162f(rawSflt16)
+    	{
+    	// rawSflt16 is the 2-byte number decoded from wherever;
+    	// it's in range 0..0xFFFF
+    	// bit 15 is the sign bit
+    	// bits 14..11 are the exponent
+    	// bits 10..0 are the the mantissa. Unlike IEEE format, 
+    	// 	the msb is transmitted; this means that numbers
+    	//	might not be normalized, but makes coding for
+    	//	underflow easier.
+    	// As with IEEE format, negative zero is possible, so
+    	// we special-case that in hopes that JavaScript will
+    	// also cooperate.
+    	//
+    	// The result is a number in the open interval (-1.0, 1.0);
+    	// 
+    	
+    	// throw away high bits for repeatability.
+    	rawSflt16 &= 0xFFFF;
+     
+    	// special case minus zero:
+    	if (rawSflt16 == 0x8000)
+    		return -0.0;
+     
+    	// extract the sign.
+    	var sSign = ((rawSflt16 & 0x8000) !== 0) ? -1 : 1;
+    	
+    	// extract the exponent
+    	var exp1 = (rawSflt16 >> 11) & 0xF;
+     
+    	// extract the "mantissa" (the fractional part)
+    	var mant1 = (rawSflt16 & 0x7FF) / 2048.0;
+     
+    	// convert back to a floating point number. We hope 
+    	// that Math.pow(2, k) is handled efficiently by
+    	// the JS interpreter! If this is time critical code,
+    	// you can replace by a suitable shift and divide.
+    	var f_unscaled = sSign * mant1 * Math.pow(2, exp1 - 15);
+     
+    	return f_unscaled;
+    	}
+```
+
+## Integración con Ubidots
+Ya les indique más arriba que TTN no almacena datos, por lo que debemos enviarlos a alguna nube donde podamos trabajar con ellos si pasen de ser datos a algo funcional para nosotros.
+
+Bueno TTN nos facilita la vida y Ubidots sigue siendo una maravilla ya ofrece integración nativa podriamos decir con TTN, no se integra con todas las nubes con facilidad como se aprecia en la siguiente imagen:
+
+![Integraciones](/imagenes/integraciones.png)
+
+Si ya trabajas con alguna de estas para tus aplicaciones de IoT bueno topaste con suerte, igual puedes utilizar servicios que requieran parte de creación de código por tu parte. Las mentes creativas lo solucionaran con facilidad. Que debo configurar para Ubidots pues mira esta imagen:
+![UbidotsIntegra](/imagenes/ubidtosInte.png)
+
+Realmente muy sencillo creas un procesod entro de la plataforma TTN sin costo, que te estará enviando la data, en el **Access Key** indicas **default key** y el token desde luego utilizas el que Ubidots ya te creo cuando te registrarte. Esto va a enviar los datos de tu dispositivo directo a Ubidots, crea el device las variables y ahora solo te toca crear un nuevo Dashboard con tu nuevo dispositivo que te manda datos desde la red de LORAWAN.
+
+## Fin de taller
 
 
 
