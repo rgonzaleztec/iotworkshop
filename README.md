@@ -15,9 +15,12 @@ Pueden realizar consulta escribiendo a Rogelio Gonzalez al correo rojo@tec.ac.cr
 
 # Sobre las placas
 Vamos a utilizar un Arduino Uno con un shield de ethernet.
-![Arduino Uno](/imagenes/logo.png)
+![Arduino Uno](/imagenes/arduinoUno.jpg)
 
-![Arduino con placa](imagenes/)
+![Arduino con placa](/imagenes/shield-ethernet-para-arduino-uno-mega.jpg)
+Desde luego que sin una tarjeta de red no se puede conectar a la Internet. No se requieren puertos especiales para acceder a la plataforma Ubidots, basta con tener acceso a Internet y navegar. Lo anterior es porque la plataforma tiene APIs seguros que permiten tanto subir como descargar datos de los sensores.
+
+
 
 
 
