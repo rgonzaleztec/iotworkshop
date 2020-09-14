@@ -308,7 +308,8 @@ No se estara realizando completamente la configuración del Gateway que se esta 
 Algunas puertas de enlace que TTN promueve pueden verse [aqui](https://www.thethingsnetwork.org/marketplace/products/devices).
 
 El que se utiliza para este laboratorio se puede comprar bajo el modelo RAK 831, tiene un costo aproximado de 300$ y hay muchos manuales de configuración y puesta en marcha.
-Pueden verlo en la siguiente [imagen](/imagenes/kit7_1024x.jpg).
+Pueden verlo en la siguiente 
+![imagen](/imagenes/kit7_1024x.jpg).
 
 Algunos manuales disponibles de mucha utilidad para realidad la instalación:
 * De TTN [este](https://www.thethingsnetwork.org/docs/gateways/rak831/)
@@ -322,13 +323,13 @@ Para el Feather M0 pueden comprarlo en multiples páginas por ejemplo>
 
 A nuestro feather le hemos conectado un dth22 y un acelerometro adxl345. Ilustrados en la siguiente imagenes.
 
-[DTH22](/master/imagenes/dht22-pinout_2P1AgF3wPs.png.jpeg)
-[Acelerometro ADXL345](/imagenes/acelerometro-3-ejes-adxl345-2g4g8g16g.jpg)
+![DTH22](/master/imagenes/dht22-pinout_2P1AgF3wPs.png.jpeg)
+![Acelerometro ADXL345](/imagenes/acelerometro-3-ejes-adxl345-2g4g8g16g.jpg)
 
 Sugerencia de cableado de los dispositivos al feather m0.
 
-[Temperatura-Humedad](/imagenes/weather_dht22_fritzing.png)
-[Acelerometro](/imagenes/feather-and-ADXL345-layout.png)
+![Temperatura-Humedad](/imagenes/weather_dht22_fritzing.png)
+![Acelerometro](/imagenes/feather-and-ADXL345-layout.png)
 
 Estos pueden cambiar para su conficuración personal, pero debe tener en cuenta lo siguiente:
 * El feather M0 solo tiene un conexion de GND o tierra y una de VCC o voltaje, por lo que deberá alambrar y soldar un linea para darle esos conexiones a ambos sensores
@@ -339,13 +340,17 @@ Estos pueden cambiar para su conficuración personal, pero debe tener en cuenta 
 
 Ahora tenemos claro que estamos usando debemos soldar y cablear todo con cuidado, se pueden utilizar protoboard si el sensor es para pruebas.
 
-Sensor puede verse de esta [manera](/imagenes/sensor%20completo.jpeg)
+Sensor puede verse de esta 
+![manera](/imagenes/sensor%20completo.jpeg)
 
-Sensor con bateria de litio [asi](/imagenes/sensor%20con%20bateria.jpeg)
+Sensor con bateria de litio 
+![asi](/imagenes/sensor%20con%20bateria.jpeg)
 
-Gateway vista [uno](/imagenes/gateway%20rak%20831.jpeg)
+Gateway vista 
+![uno](/imagenes/gateway%20rak%20831.jpeg)
 
-Gateway vista [dos](/imagenes/vista%20gateway.jpeg)
+Gateway vista 
+![dos](/imagenes/vista%20gateway.jpeg)
 
 
 
