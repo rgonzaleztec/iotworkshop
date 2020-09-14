@@ -6,7 +6,7 @@ Para revisar toda la documentación acceder a este [enlace](https://ubidots.com/
 
 Para la plataforma de The Things Network acceder a este [enlace](https://www.thethingsnetwork.org/docs/)
 
-La información que se presenta en este repositorio es estraída de las documentaciones de las plataformas y organizada de manera que sea posible reproducir y crear una aplicación de IoT con estas placas.
+La información que se presenta en este repositorio es extraída de las documentaciones de las plataformas y organizada de manera que sea posible reproducir y crear una aplicación de IoT con estas placas.
 
 Las explicaciones se basan en el trabajo y experiencia que se ha obtenido desarrollando aplicaciones de este tipo.
 
@@ -46,7 +46,7 @@ Si no tiene instalado o no ha trabajado con Arduino IDE debe seguir este [enlace
 
 Si ya tiene instalado y configurado su Arduino IDE, debe instalar la libreria de Ethernet de Ubidots descarguela de [aquí](https://github.com/ubidots/ubidots-arduino-ethernet/archive/master.zip).
 
-El archivo zip descargado se debe instalar dentro del IDE de Arduino en Sketch -> Include Library -> Add .ZIP Library. Luego reinicie el Arduino IDE para que se recargue la librería que acabos de subir. Puede guiarse en con la siguiente imagen, los resaltados muestran donde se dio click.
+El archivo zip descargado se debe instalar dentro del IDE de Arduino en **Archivo -> Incluir Libreria -> Agregar .ZIP Libreria**. Luego reinicie el Arduino IDE para que se recargue la librería que acabamos de subir. Puede guiarse con la siguiente imagen, los resaltados muestran donde se dio click.
 [Cargar Libreria](/imagenes/agregarlibreria.png)
 
 **No olvide reiniciar el IDE para que puedar recargar la librería**
@@ -54,7 +54,7 @@ El archivo zip descargado se debe instalar dentro del IDE de Arduino en Sketch -
 Esto es lo único que requerimos para trabajar nuestro proyecto.
 
 # Sobre la Plataforma
-Ubidots proporciona todo lo necesario para que usted pueda subir o bajar datos de los dispositivos, recuerte que estamos utilizando una cuenta STEM, por lo que solo podemos incluir tres dispositivos de manera perpetua. Si se desean más dispositivos o crear aplicaciones para producción lo recomendable es utilizar una cuenta industrial.
+Ubidots proporciona todo lo necesario para que usted pueda subir o bajar datos de los dispositivos, recuerde que estamos utilizando una cuenta STEM, por lo que solo podemos incluir tres dispositivos de manera perpetua. Si se desean más dispositivos o crear aplicaciones para producción lo recomendable es utilizar una cuenta industrial.
 
 Si no ha completo el proceso de registro en Ubidots STEM realicelo en el siguiente [enlace](https://ubidots.com/stem/). El registro es ágil y gratuito, esta muy bien documentado cuenta con soporte para 200+ dispositivos de fuente abierta y tutoriales para guiarte. Tienes acceso a tableros en tiempo real con 30+ tipos de widgets. Por último puedes utilizar los triggers o disparadores para tomar acción cuando un sensor tiene un lectura que nos indica reacción.
 
@@ -78,7 +78,7 @@ Se pueden crear manualmente en la plataforma para administrar los identificadore
 
 Desde luego que sin una tarjeta de red no se puede conectar a la Internet. No se requieren puertos especiales para acceder a la plataforma Ubidots, basta con tener acceso a Internet y navegar. Lo anterior es porque la plataforma tiene APIs seguros que permiten tanto subir como descargar datos de los sensores.
 
-Se pueden utilizar muchos otros shields como el de WiFi o BLuetooth en el caso de este último se requiere que se conecte a algun dispositivo que le permita tener acceso a Internet o aplicación que recolecte y muestre la data como información. Lo anterior como punto final para dar información o generar una nueva acción.
+Se pueden utilizar muchos otros shields como el de WiFi o Bluetooth en el caso de este último se requiere que se conecte a algun dispositivo que le permita tener acceso a Internet o aplicación que recolecte y muestre la data como información. Lo anterior como punto final para dar información o generar una nueva acción.
 
 
 Vamos a modificar el ejemplo que trae por defecto la libreria que acabamos de instalar. Para acceder al ejemplo vamos a abrir la aplicación Arduino IDE, en el menú de **Archivo--> Ejemplos --> UbidotsArduino library** seleccionamos el ejemplo de **UbidotsGetValue**.
@@ -149,7 +149,7 @@ void loop() {
   delay(5000);
 }
 ```
-Esta liberia te permite subir hasta  **5 variables** por solicitud. No se preocupe si ocupa mas, si decides enviar mas de 5 variables, necesitas abrir un nuevo ejemplo **Archivo -> Ejemplos -> ubidots-arduino-ethernet library** y seleccione el ejemplo **"UbidotsSaveMultiValues"** . No olvide asignar el toquen [TOKEN](http://help.ubidots.com/user-guides/find-your-token-from-your-ubidots-account), e indicar las etiquetas de las variables que requiere, tambien compiar la MAC Address de su tarjeta de red de su Arduino.
+Esta librería te permite subir hasta  **5 variables** por solicitud. No se preocupe si ocupa mas, si decides enviar mas de 5 variables, necesitas abrir un nuevo ejemplo **Archivo -> Ejemplos -> ubidots-arduino-ethernet library** y seleccione el ejemplo **"UbidotsSaveMultiValues"** . No olvide asignar el toquen [TOKEN](http://help.ubidots.com/user-guides/find-your-token-from-your-ubidots-account), e indicar las etiquetas de las variables que requiere, tambien compiar la MAC Address de su tarjeta de red de su Arduino.
 
 ```c++
 /********************************
@@ -282,7 +282,7 @@ void loop() {
 ```
 
 ## Manejo del tablero
-El manejo del table es muy sensillo he intuitivo, para cuando estamos subiendo datos o requerimos monitorear los valores de los sensores en tiempo real desde alguna localización, colgarlo en una página web o compartirlo con un usuario final o cliente.
+El manejo del tablero es muy sencillo he intuitivo, para cuando estamos subiendo datos o requerimos monitorear los valores de los sensores en tiempo real desde alguna localización, colgarlo en una página web o compartirlo con un usuario final o cliente.
 
 Crear tablero ver [imagen](/imagenes/tablero.png)
 
@@ -303,7 +303,7 @@ Como se pudo observar en la presentacion del taller las redes LoraWAN estan desp
 
 Para que nuestro Radio Feather M0 RFM95 para **900 Mhz** con chip de SX127x de Lora que en una frecuencia de banda libre (en muchos paises de America Latina la banda 900Mhz es libre debe verificar en el suyo) funcione es requerido tener dos rádios cercanos unos 400 a 600 metros. Lo común es utilizar una pasalera comunitaria de la red LoraWAN que esta soportada en la infraestructura que "The Things Network" facilita a nivel mundial de manera gratuita. Puede verificar si tiene pasarelas cercanas a usted en este [enlace](https://www.thethingsnetwork.org/). 
 
-No se estará realizando completamente la configuración del Gateway que se esta utilizando dada la gran variedad, pero se dejan los enlaces al que se utilizó para el taller, más enlaces a otros que pueden ser adquiridos para realizar pruebas, en caso de que estes cerca de un Gateway de lora solo debes verificar la distancia para que tu antena sea de un tamaño y potencia que te permita acceder a ese Gateway(lora no tiene tanta perdida como wifi atravesando paredes).
+No se estará realizando completamente la configuración del Gateway que se esta utilizando dada la gran variedad, pero se dejan los enlaces al que se utilizó para el taller, mas otros enlaces a otros sitios que pueden ser de utilidad para ser adquiridos para realizar pruebas, en caso de que estes cerca de un Gateway de Lora solo debes verificar la distancia para que tu antena sea de un tamaño y potencia que te permita acceder a ese Gateway(lora no tiene tanta perdida como wifi atravesando paredes).
 
 Algunas puertas de enlace que TTN promueve pueden verse [aqui](https://www.thethingsnetwork.org/marketplace/products/devices).
 
@@ -375,13 +375,13 @@ Allí vamos a ver lo siguiente:
 Una vez seleccionado el crear aplicación vamos a crear una nueva como se ve en la siguiente imagen:
 ![opciones](/imagenes/agregarAPP.png)
 
-Colocamos la información que nos solicitan de la aplicación que es un identificar unico y una descripcion para los humanos. El identidicador es como se vera en ttn, puede verlo en la siguiente imagen:
+Colocamos la información que nos solicitan de la aplicación que es un identificador único y una descripcion para los humanos. El identificador es como se muestra en ttn, puede verlo en la siguiente imagen:
 ![opciones](/imagenes/addAPPnombre.png)
 
 Ya tenemos registrada nuestra aplicación ahora podemos registrar dispositivos a esta aplicación tantos como tengamos, pensando en un campo de riego podriamos tener varios sensores para el sistema de riego. El registro de un dispositivo es muy sencillo siguiendo estos pasos, apoyarse en esta imagen:
 ![opciones](/imagenes/registroDevice.png)
 
-La información del dispositivo es solo colocar un Device Id indentificador todo en minúscula. El Device EUI y App Key se pueden autogenerar, junto el App EUI. Estos tres datos los vamos a ocupar en nuestro archivo de congifuración del radio lora. Ver imagen
+La información del dispositivo es solo colocar un Device Id indentificador todo en minúscula. El Device EUI y App Key se pueden autogenerar, junto el App EUI. Estos tres datos los vamos a ocupar en nuestro archivo de configuración del radio lora. Ver imagen
 ![RegistroDev](/imagenes/infoDeviceregistro.png)
 
 Finalmente debemos tener a mano la siguiente información para hacer la configuración de nuestra tarjeta en el Arduino IDE. Recordar copiar o tener a mano lo que se ve en la siguiente imagen. 
@@ -409,7 +409,7 @@ El código para tu arduino IDE lo descargas de [aqui](/codigo/featherm0taller40.
 En este momento si cambias los valores de tu llave deberás poder subir datos a tu TTN, 
 
 ## Configuración de Payload
-Los paquetes de carga son los paquete de datos que TTN estable para con permiso para transitar en en red. Estos tienen un formato y regulaciones les dejo por acá un [enlace](https://akirasan.net/la-importancia-de-un-buen-payload-en-lorawan/) recomendación descargar y ver el pdf de la presentación del autor para ampliar el tema, la importancia  del Payload en español.
+Los paquetes de carga son los paquete de datos que TTN establece para transitar en la red. Estos tienen un formato y regulaciones les dejo por acá un [enlace](https://akirasan.net/la-importancia-de-un-buen-payload-en-lorawan/) **recomendación descargar** y ver el pdf de la presentación del autor para ampliar el tema, la importancia  del Payload en español.
 
 Lo principal se podría resumir como:
 * Solo tenemos 30 segundos de aire
@@ -419,7 +419,7 @@ Lo principal se podría resumir como:
 * La tecnologia tiene un máximo aproximado de 1024 bytes
 * LoraWAN añade 13 bytes a nuestro mensaje (menos espacio)
 
-Para nuestro caso les dejo lo que utilizo para convertir los datos que estos enviando, desde luego es solo para este caso la forma en que los conviertas cambiará tu payload.
+Para nuestro caso les dejo lo que utilizo para convertir los datos que estamos enviando, desde luego es solo para este caso la forma en que los conviertas cambiará tu payload.
 
 Código listo para pegar en el decoder:
 
@@ -495,16 +495,16 @@ Código listo para pegar en el decoder:
 ```
 
 ## Integración con Ubidots
-Ya les indique más arriba que TTN no almacena datos, por lo que debemos enviarlos a alguna nube donde podamos trabajar con ellos si pasen de ser datos a algo funcional para nosotros.
+Ya les indique más arriba que TTN no almacena datos, por lo que debemos enviarlos a alguna nube donde podamos trabajar con ellos así pasan de ser datos a algo funcional para nosotros o nuestros usuarios.
 
-Bueno TTN nos facilita la vida y Ubidots sigue siendo una maravilla ya ofrece integración nativa podriamos decir con TTN, no se integra con todas las nubes con facilidad como se aprecia en la siguiente imagen:
+Bueno TTN nos facilita la vida y Ubidots sigue siendo una maravilla ya que ofrece integración nativa podriamos decirlo así con TTN, no se integra con todas las nubes con facilidad pero con Ubidots lo hace muy fácil, como se aprecia en la siguiente imagen:
 
 ![Integraciones](/imagenes/integraciones.png)
 
 Si ya trabajas con alguna de estas para tus aplicaciones de IoT bueno topaste con suerte, igual puedes utilizar servicios que requieran parte de creación de código por tu parte. Las mentes creativas lo solucionaran con facilidad. Que debo configurar para Ubidots pues mira esta imagen:
 ![UbidotsIntegra](/imagenes/ubidtosInte.png)
 
-Realmente muy sencillo creas un procesod entro de la plataforma TTN sin costo, que te estará enviando la data, en el **Access Key** indicas **default key** y el token desde luego utilizas el que Ubidots ya te creo cuando te registrarte. Esto va a enviar los datos de tu dispositivo directo a Ubidots, crea el device las variables y ahora solo te toca crear un nuevo Dashboard con tu nuevo dispositivo que te manda datos desde la red de LORAWAN.
+Realmente es muy sencillo creas un proceso dentro de la plataforma TTN sin costo, que te estará enviando la data, en el **Access Key** indicas **default key** y el token desde luego utilizas el que Ubidots ya te creo cuando te registraste. Esto va a enviar los datos de tu dispositivo directo a Ubidots, crea el device las variables y ahora solo te toca crear un nuevo Dashboard con tu nuevo dispositivo que te manda datos desde la red de LORAWAN.
 
 ## Fin de taller
 
