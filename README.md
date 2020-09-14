@@ -1,16 +1,16 @@
 # Repositorio para Taller de Industria 4.0 sobre IoT
 En este repositorio se puede encontrar ejemplos de configuración para placas como Arduino Uno y Feather LoraWan.
-Se utiliza la plataforma para IoT Ubidots, la mis ofrece una documentación muy completa para la basta cantidad de plataformas de dispositivos que pueden utilizar con esta plataforma.
+Se utiliza la plataforma para IoT Ubidots, la misma ofrece una documentación muy completa para la basta cantidad de plataformas de dispositivos que pueden utilizarse con esta plataforma.
 
 Para revisar toda la documentación acceder a este [enlace](https://ubidots.com/docs/devices/#devices).
 
 Para la plataforma de The Things Network acceder a este [enlace](https://www.thethingsnetwork.org/docs/)
 
-La información que se presenta en este repositorio es estraida de las documentaciones de las plataformas y organizada de manera que sea posible reproducir y crear una aplicación de IoT con estas placas.
+La información que se presenta en este repositorio es estraída de las documentaciones de las plataformas y organizada de manera que sea posible reproducir y crear una aplicación de IoT con estas placas.
 
 Las explicaciones se basan en el trabajo y experiencia que se ha obtenido desarrollando aplicaciones de este tipo.
 
-Pueden realizar consulta escribiendo a Rogelio Gonzalez al correo rojo@tec.ac.cr
+Pueden realizar consultas escribiendo a Rogelio Gonzalez al correo rojo@tec.ac.cr
 
 
 # Sobre las placas
@@ -18,11 +18,11 @@ Vamos a utilizar un Arduino Uno con un shield de ethernet.
 
 ![Arduino Uno](/imagenes/arduinoUno.jpg)
 
-Las placas que cambiaron las posibilidades de poder desarrollar, probar y prototipar muchas aplicaciones que antes dependian de hardware costoso imposible para prototipar.
+Las placas que cambiaron las posibilidades de poder desarrollar, probar y prototipar muchas aplicaciones que antes dependían de hardware costoso imposible para prototipar.
 
 ![Feather M0 RFM95](/imagenes/feather_3178_top_ORIG.jpg)
 
-Basadas en el SX127x LoRa el cual define el radio de comunición estandarizado para redes LoraWAN. El mismo tiene 10 pines analogos de entrada y uno de salida.
+Basadas en el SX127x LoRa el cual define el radio de comunición estandarizado para redes LoraWAN. El mismo tiene 10 pines análogos de entrada y uno de salida.
 
 
 
@@ -282,7 +282,7 @@ void loop() {
 ```
 
 ## Manejo del tablero
-El manejo del table es muy sensillo he intuitivo, para cuando estamos subiendo datos o requerimos monitorear los valores de los sensores en tiempo real desde alguna locación, colgarlo en una página web o compartirlo con un usuario final o cliente.
+El manejo del table es muy sensillo he intuitivo, para cuando estamos subiendo datos o requerimos monitorear los valores de los sensores en tiempo real desde alguna localización, colgarlo en una página web o compartirlo con un usuario final o cliente.
 
 Crear tablero ver [imagen](/imagenes/tablero.png)
 
@@ -293,12 +293,56 @@ Para esto utilizaremos el que mejor se acople a los valores que quiero desplegar
 
 Una vez seleccionado debo indicar que quiero que me muestre, si un promedio, mayor, menor, igual, el último valor o cuantos se han almacenado. Además se debe indicar si quiero los valores del día, de la semana o del mes. La data se puede descargar de Ubidots si requerimos analizarla diferente. Puede guiarse en la siguiente [imagen](/imagenes/muestre.png)
 
-Por último debe indicar cual dispositivo y variable quiere ver, puede seleccionar de varios dispositivos para el mismo tablero, y diferentes variables. Puedes mesclarlos en la misma vista si es eso lo que seas. Se puede guiar en la siguiente [imagen](/imagenes/dispositivovariable.png)
+Por último debe indicar cual dispositivo y variable quiere ver, puede seleccionar de varios dispositivos para el mismo tablero, y diferentes variables. Puedes mezclarlos en la misma vista si es eso lo que seas. Se puede guiar en la siguiente [imagen](/imagenes/dispositivovariable.png)
 
 Ahora con tu tablero creado puedes usar las opciones de compartir o empotrar tu tablero. Se puede guiar en esta [imagen](/imagenes/compartirtablero.png)
 
+# Como conectar un Feather Lora Radio
+
+Como se pudo observar en la presentacion del taller las redes LoraWAN esa desplegadas por todo el mundo, gracias a su versatilidad y bajo consumo de electricidad se perfil como un actor muy importante para desarrollar algunas aplicaciones de IoT.
+
+Para que nuestro Radio Feather M0 RFM95 para **900 Mhz** con chip de SX127x de Lora que en una frecuencia de banda libre (en muchos paises de America Latina la banda 900Mhz es libre debe verificar en el suyo) funcione es requerido tener dos rádios cercanos unos 400 a 600 metros. Lo común es utilizar una pasalera comunitaria de la red LoraWAN que esta soportada en la infraestructura que "The Things Network" facilita a nivel mundial de manera gratuita. Puede verificar si tiene pasarelas cercanas a usted en este [enlace](https://www.thethingsnetwork.org/). 
+
+No se estara realizando completamente la configuración del Gateway que se esta utilizando dada la gran variedad, pero se dejan los enlaces al que se utilizo para el taller, más enlaces a otros que pueden ser adquiridos para realizar pruebas, en caso de que estes cerca de un Gateawy de lora solo debes verificar la distancia para que tu antena se de un tamaño y potencia que te permita acceder a ese Gateway(lora no tiene tanta perdida como wifi atravesando paredes :)).
+
+Algunas puertas de enlace que TTN promueve pueden verse [aqui](https://www.thethingsnetwork.org/marketplace/products/devices).
+
+El que se utiliza para este laboratorio se puede comprar bajo el modelo RAK 831, tiene un costo aproximado de 300$ y hay muchos manuales de configuración y puesta en marcha.
+Pueden verlo en la siguiente [imagen](/imagenes/kit7_1024x.jpg).
+
+Algunos manuales disponibles de mucha utilidad para realidad la instalación:
+* De TTN [este](https://www.thethingsnetwork.org/docs/gateways/rak831/)
+* De RAK [este](https://www.hackster.io/naresh-krish/getting-started-with-the-rak831-lora-gateway-and-rpi3-e3351d)
+* En video funciona [este](https://www.youtube.com/watch?v=bea7g5isD0w)
+
+Para el Feather M0 pueden comprarlo en multiples páginas por ejemplo>
+* Adafruit [este](https://www.adafruit.com/product/3178)
+* Amazon [este](https://www.amazon.com/-/es/165/dp/B01MRY3ETX/ref=sr_1_1?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Feather+M0+with+RFM95+LoRa&qid=1600101003&sr=8-1)
+* Mouser [este](https://co.mouser.com/ProductDetail/Adafruit/3178?qs=TlVEbN%2FgKDkhUZkXCJivzw%3D%3D)
+
+A nuestro feather le hemos conectado un dth22 y un acelerometro adxl345. Ilustrados en la siguiente imagenes.
+
+[DTH22](/master/imagenes/dht22-pinout_2P1AgF3wPs.png.jpeg)
+[Acelerometro ADXL345](/imagenes/acelerometro-3-ejes-adxl345-2g4g8g16g.jpg)
+
+Sugerencia de cableado de los dispositivos al feather m0.
+
+[Temperatura-Humedad](/imagenes/weather_dht22_fritzing.png)
+[Acelerometro](/imagenes/feather-and-ADXL345-layout.png)
+
+Estos pueden cambiar para su conficuración personal, pero debe tener en cuenta lo siguiente:
+* El feather M0 solo tiene un conexion de GND o tierra y una de VCC o voltaje, por lo que deberá alambrar y soldar un linea para darle esos conexiones a ambos sensores
+* No debe cargar la linea de VCC y GND demasiado, aunque tiene 10 pines analógicos entre más sensores má bateria
+* Si alambra más sensores para evitar degradar la señal ocupará un capacitor
+* A este fearher le conectaremos una bateria de 3.7V no exceda ese maximo ya que puede causar que la bateria se termine muy rápido
 
 
-# Como conectar un feather Lora
+Ahora tenemos claro que estamos usando debemos soldar y cablear todo con cuidado, se pueden utilizar protoboard si el sensor es para pruebas. 
+
+
+
+
+
+
 
 
