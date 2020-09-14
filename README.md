@@ -337,7 +337,16 @@ Estos pueden cambiar para su conficuración personal, pero debe tener en cuenta 
 * A este fearher le conectaremos una bateria de 3.7V no exceda ese maximo ya que puede causar que la bateria se termine muy rápido
 
 
-Ahora tenemos claro que estamos usando debemos soldar y cablear todo con cuidado, se pueden utilizar protoboard si el sensor es para pruebas. 
+Ahora tenemos claro que estamos usando debemos soldar y cablear todo con cuidado, se pueden utilizar protoboard si el sensor es para pruebas.
+
+Sensor puede verse de esta [manera](/imagenes/sensor%20completo.jpeg)
+
+Sensor con bateria de litio [asi](/imagenes/sensor%20con%20bateria.jpeg)
+
+Gateway vista [uno](/imagenes/gateway%20rak%20831.jpeg)
+
+Gateway vista [dos](/imagenes/vista%20gateway.jpeg)
+
 
 
 
