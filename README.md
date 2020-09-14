@@ -321,6 +321,7 @@ Para el Feather M0 pueden comprarlo en multiples páginas por ejemplo>
 * Amazon [este](https://www.amazon.com/-/es/165/dp/B01MRY3ETX/ref=sr_1_1?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Feather+M0+with+RFM95+LoRa&qid=1600101003&sr=8-1)
 * Mouser [este](https://co.mouser.com/ProductDetail/Adafruit/3178?qs=TlVEbN%2FgKDkhUZkXCJivzw%3D%3D)
 
+## Sobre la configuracion del hardware requerido
 A nuestro feather le hemos conectado un dth22 y un acelerometro adxl345. Ilustrados en la siguiente imagenes.
 
 Sensor de Humedad Temperatura DHT22
@@ -329,12 +330,12 @@ Sensor de Humedad Temperatura DHT22
 Acelerometro ADXL345
 ![Acelerometro ADXL345](/imagenes/acelerometro-3-ejes-adxl345-2g4g8g16g.jpg)
 
-Sugerencia de cableado de los dispositivos al feather m0.
+Sugerencia de cableado de los dispositivos al feather m0.Para el de Humedad Temperatura
 
-Para el de Humedad Temperatura, en la vista se puede apreciar la antena del Radio de Lora.
 ![Temperatura-Humedad](/imagenes/weather_dht22_fritzing.png)
 
 Para el Acelerometro
+
 ![Acelerometro](/imagenes/feather-and-ADXL345-layout.png)
 
 **Nota imporante nunca conecte el feather radio a un alimentación o bateria sin haber soldado la antenna, esto puede quedar la tarjeta**
@@ -348,9 +349,9 @@ Estos pueden cambiar para su conficuración personal, pero debe tener en cuenta 
 
 Ahora tenemos claro que estamos usando debemos soldar y cablear todo con cuidado, se pueden utilizar protoboard si el sensor es para pruebas.
 
-Sensor puede verse de esta 
+Sensor puede verse de esta forma, en la vista se puede apreciar la antena del Radio de Lora es de color amarillo es un simple cable pero alcanza para 500 metros.
 ![manera](/imagenes/sensor%20completo.jpeg)
-
+ 
 Sensor con bateria de litio 
 ![asi](/imagenes/sensor%20con%20bateria.jpeg)
 
@@ -359,6 +360,27 @@ Gateway vista
 
 Gateway vista 
 ![dos](/imagenes/vista%20gateway.jpeg)
+
+## Preparando la nube de TTN para nuestra aplicación
+La red TTN te permite tener aplicaciones o puertas de enlace, tantas como quieras o necesites para tus soluciones.
+Primero hay que registrarse [aqui](https://account.thethingsnetwork.org/register) una vez completado el registro ya podrás registrar Gateways o Aplicaciones.
+
+Aclaró que la red TTN es una pasarela que permite ver registrar Gateways a servicio de todos los que quieran usarlos, que las aplicaciones que registras son sensores y puedes ver la data que suben a la red pero si no tienes una aplicación de almacenamiento esta data se pierde. TTN no almacena datos, todas las comunicaciones están encriptadas por seguridad y no se almacenan los datos subidos. Es responsabilidad de nosotros llevarlos a un sitio donde se pueden almacenar, en nuestro caso como ya tenemos cuenta en Ubidots vamos a usar esa facilidad.
+
+## Creando una aplicación en TTN
+Para usar un sensor o dispositivo debemos registrarlo primero, eso se realice de la siguiente manera una vez registrados en la página, ingresamos a la console de TTN.
+Allí vamos a ver lo siguiente:
+![opciones](/imagenes/opcionesTTN.png)
+
+Una vez seleccionado el crear aplicación vamos a crear una nueva como se ve en la siguiente imagen:
+![opciones](/imagenes/agregarAPP.png)
+
+Colocamos la información que nos solicitan de la aplicación que es un identificar unico y una descripcion para los humanos. El identidicador es como se vera en ttn, puede verlo en la siguiente imagen:
+![opciones](/imagenes/addAPPnombre.png)
+
+Ya tenemos registrada nuestra aplicación ahora podemos registrar dispositivos a esta aplicación tantos como tengamos, pensando en un campo de riego podriamos tener varios sensores para el sistema de riego. El registro de un dispositivo es muy sencillo siguiendo estos pasos, apoyarse en esta imagen:
+![opciones](/imagenes/registroDevice.png)
+
 
 
 
